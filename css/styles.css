@@ -1,0 +1,538 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+       /* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #121212;
+    color: white;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(135deg, #1e1e1e, #292929);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar:hover {
+    width: 300px; /* Expande a sidebar quando o mouse está sobre ela */
+}
+
+/* Perfil */
+.profile {
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.profile-img-container {
+    width: 120px;
+    height: 120px;
+    perspective: 1000px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.8s ease-in-out, box-shadow 0.3s ease;
+}
+
+.profile-img.front {
+    z-index: 2;
+}
+
+.profile-img-container:hover .profile-img.front {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+}
+
+.profile-img-container:hover .profile-img.back {
+    transform: rotateY(0deg);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+}
+
+.profile-img-container:hover .profile-img.front {
+    z-index: 1;
+}
+
+/* Nome do Perfil */
+h2 {
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #00ffcc;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Links da Sidebar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li {
+    padding: 15px 0;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+    transform: translateX(10px); /* Adiciona um pequeno movimento para a direita ao passar o mouse */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00ffcc;
+    transform: translateX(5px);
+}
+
+/* WhatsApp */
+.whatsapp {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.whatsapp a {
+    font-size: 30px;
+    color: #00ffcc;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp a:hover {
+    transform: scale(1.2); /* Aumenta o tamanho do ícone do WhatsApp ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .profile-img-container {
+        width: 100px;
+        height: 100px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+        main {
+    margin-left: 250px; /* Ajuste para a largura da sidebar */
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Ajusta o início do conteúdo */
+    padding-top: 60px; /* Adiciona um espaçamento no topo */
+    position: relative;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal */
+}
+
+        .hero {
+            position: relative;
+            text-align: center;
+        }
+        .hero-bg {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            filter: brightness(30%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .hero-text {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-text h1 {
+            font-size: 3em;
+        }
+        .hero-text h1 span {
+            color: #00ffcc;
+        }
+        .hero-text p {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+        .about {
+            background: #1e1e1e;
+            padding: 50px;
+            text-align: center;
+            border-radius: 10px;
+            width: 80%;
+            margin-top: 20px;
+            box-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .about h2 {
+            color: #00ffcc;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .about p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        
+      .skills {
+    background: #1e1e1e;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 20px;
+    box-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.skill {
+    width: 100px;
+    margin: 15px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill i {
+    font-size: 40px;
+    color: #00ffcc;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.skill p {
+    margin-top: 5px;
+    font-size: 1.2em;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.skill:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: #00ffaa;
+    text-shadow: 0 0 10px rgba(0, 255, 170, 0.8);
+}
+
+.skill:hover p {
+    color: #00ffaa;
+}
+
+
+     
+
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.project {
+    background: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+    width: 418px; /* Aumentei um pouco */
+    height: 550px; /* Para comportar a imagem maior */
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+/* Ajuste do carrossel */
+.carousel {
+    width: 100%;
+    max-width: 800px;
+    height: 500px; /* Ajuste conforme necessário */
+}
+
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-images img {
+    width: 100% !important;  /* Faz com que a imagem ocupe toda a largura */
+    height: 100% !important; /* Faz com que a imagem ocupe toda a altura */
+    object-fit: cover; /* Faz com que a imagem cubra toda a área sem distorcer */
+    display: none;
+}
+
+.carousel-images img.active {
+    display: block;
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Animação de hover nos ícones de tecnologia */
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.tech-icons i {
+    font-size: 32px;
+    color: #00ffcc;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.tech-icons i:hover {
+    transform: scale(1.2) rotate(5deg); /* Aumenta o tamanho e gira um pouco */
+    color: #00ffaa; /* Altera a cor */
+    text-shadow: 0 0 10px rgba(0, 255, 170, 0.8); /* Adiciona um brilho */
+}
+
+
+
+.project-info {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.project-info h3 {
+    font-size: 1.4em;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    font-size: 1em;
+    color: #bbb;
+    max-height: 100px; /* Altura limitada para evitar quebra no layout */
+    overflow-y: auto; /* Adiciona rolagem caso o texto seja grande */
+    padding: 5px;
+    text-align: justify;
+}
+
+.project-info:hover p {
+    max-height: none; /* Exibe o texto completo ao passar o mouse */
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+
+.modal img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+    /* Estilos da Section de Contato */
+.contact {
+    background: #1e1e1e;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+    margin-top: 30px;
+}
+
+.contact h2 {
+    color: #00ffcc;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+
+/* Animação de hover nos ícones de tecnologia */
+.info-item{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.info-item i {
+    font-size: 32px;
+    color: #00ffcc;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.info-item i:hover {
+    transform: scale(1.2) rotate(5deg); /* Aumenta o tamanho e gira um pouco */
+    color: #00ffaa; /* Altera a cor */
+    text-shadow: 0 0 10px rgba(0, 255, 170, 0.8); /* Adiciona um brilho */
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background: #292929;
+    color: white;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+.contact-form button {
+    background: #00ffcc;
+    color: #121212;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #00cc99;
+}
