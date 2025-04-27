@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }, index * 200);
       });
 
-      // Remove o evento de scroll após a animação ser ativada
+
       window.removeEventListener("scroll", revealSkills);
     }
   }
 
   window.addEventListener("scroll", revealSkills);
-  revealSkills(); // Chama a função ao carregar a página
+  revealSkills(); 
 });

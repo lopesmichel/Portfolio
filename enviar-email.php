@@ -6,7 +6,7 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
 
-header('Content-Type: application/json'); 
+header('Content-Type: application/json');
 
 $mail = new PHPMailer(true);
 
@@ -15,7 +15,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'lopesmichel.lp@gmail.com'; 
-    $mail->Password   = 'cqhu dpad blxi jfcd';  
+    $mail->Password   = 'cqhu dpad blxi jfcd';     
     $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
@@ -24,13 +24,22 @@ try {
 
     $mail->isHTML(true);
     $mail->Subject = 'Novo contato via site';
-    $mail->Body    = "
-        <strong>Nome:</strong> {$_POST['nome']}<br>
-        <strong>Email:</strong> {$_POST['email']}<br>
-        <strong>Telefone:</strong> {$_POST['telefone']}<br>
-        <strong>Mensagem:</strong><br>{$_POST['mensagem']}
+
+    $nome = htmlspecialchars($_POST['nome']);
+    $email = htmlspecialchars($_POST['email']);
+    $telefone = htmlspecialchars($_POST['telefone']);
+    $mensagem = nl2br(htmlspecialchars($_POST['mensagem']));
+
+    $mail->Body = "
+        <strong>Nome:</strong> {$nome}<br>
+        <strong>Email:</strong> {$email}<br>
+        <strong>Telefone:</strong> {$telefone}<br>
+        <strong>Mensagem:</strong><br>{$mensagem}
     ";
 
     $mail->send();
 
-
+    echo json_encode(['success' => true, 'message' => 'Mensagem enviada com sucesso!']);
+} catch (Exception $e) {
+    echo json_encode(['success' => false, 'message' => 'Erro ao enviar: ' . $mail->ErrorInfo]);
+}

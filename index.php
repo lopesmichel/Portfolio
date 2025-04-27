@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
+    <title>Portfólio - Michel Lopes</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script defer src="scripts.js"></script>
+    <link rel="icon" href="img/eu-logo.png" type="img/eu-logo.png">
+
+
 </head>
+
 <body>
-   <div class="sidebar">
-    <div class="profile">
-        <div class="profile-img-container">
+        <button id="menu-toggle" class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+
+        <div class="sidebar">
+            <div class="profile">
+            <div class="profile-img-container">
             <img src="img/logo2 (2).png" alt="Minha Foto" class="profile-img front">
-            <img src="img/eu.png" alt="Minha Foto" class="profile-img back">
+            <img src="img/eu-logo.png" alt="Minha Foto" class="profile-img back">
+            </div>
+            <h2>Michel Lopes</h2>
         </div>
-        <h2>Michel Lopes</h2>
-    </div>
 
     <nav>
         <ul>
@@ -30,28 +39,40 @@
     </nav>
 
     <div class="whatsapp">
-        <a href="https://wa.me/seunumerodetelefone" target="_blank">
+        <a href="https://wa.me/5511966583814" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
+  
     </div>
-</div>
+    </div>
 
     <main>
-          <section class="hero">
-        <div class="hero-content">
-            <h1>Bem-vindo ao meu Portfólio</h1>
-        </div>
-    </section>
-        
-        <section class="about" id="about">
-            <h2>Sobre Mim</h2>
-            <p>Tenho 24 anos e estou finalizando minha graduação em Análise e Desenvolvimento de Sistemas em 2025. Atualmente, atuo com documentação de projetos, testes e acompanhamento de sprints semanais utilizando metodologias ágeis. 
-            Além disso, sou responsável pelo processo de Scrum, realizando manutenções e implementações de melhorias em sistemas, sempre trazendo ideias inovadoras para novos projetos. 
-            Possuo experiência com gerenciamento de times de desenvolvimento, levantamento de requisitos e otimização de processos internos, garantindo eficiência e qualidade nas entregas.</p>
-        </section>
+        <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+        </button>
 
-        
-        <section class="skills" id="skills">
+            <section class="hero" id="home">
+                <div class="hero-content">
+                    <h1>Bem-vindo ao meu Portfólio</h1>
+                </div>
+            </section>
+                
+            <section class="about animate-on-scroll" id="about">
+                <h2>Sobre Mim</h2>
+                <p>
+                    Tenho <strong>24 anos</strong> e estou finalizando minha graduação em <strong>Análise e Desenvolvimento de Sistemas</strong> em 2025. Atualmente, atuo com <strong>documentação de projetos</strong>, testes e acompanhamento de <strong>sprints semanais</strong> utilizando metodologias ágeis.
+                </p>
+                <p>
+                    Sou responsável pelo processo de <strong>Scrum</strong>, realizando manutenções e implementações de melhorias em sistemas, sempre trazendo <strong>ideias inovadoras</strong> para novos projetos.
+                </p>
+                <p>
+                    Possuo experiência com <strong>gerenciamento de times de desenvolvimento</strong>, levantamento de requisitos e <strong>otimização de processos internos</strong>, garantindo eficiência e qualidade nas entregas.
+                </p>
+            </section>
+
+   
+
+        <section class="skills animate-on-scroll animate-right" id="skills">
             <h2>Habilidades</h2>
             <div class="skills-container">
                 <div class="skill"><i class="fab fa-html5"></i><p>HTML</p></div>
@@ -64,148 +85,112 @@
                 <div class="skill"><i class="fas fa-paint-brush"></i><p>UI/UX</p></div>
                 <div class="skill"><i class="fas fa-database"></i><p>MySQL</p></div>
             </div>
+        
         </section>
 
-        <section class="projects" id="projects"> 
+
+        <section class="projects animate-on-scroll" id="projects"> 
             <h2>Projetos</h2>
             <div class="projects-container">
-                <div class="project" onclick="openModal('manual.mp4', 'Manual do Sistema', 'Criei diversas páginas e telas de administração para excluir, editar e remover produtos. Esse projeto foi feito com diversas tecnologias.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
-                    <video class="project-video" src="video/manual.mp4" muted loop></video>
+                <div class="project" onclick="openModal('manual.mp4', 'Manual do Sistema', 'Desenvolvi um manual online com navegação por categorias, índice, busca por palavra-chave e modo escuro. Feito para orientar usuários e facilitar o aprendizado do sistema. Possui área administrativa com CRUD para manter o conteúdo sempre atualizado.', 
+                ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-php', 'fas fa-database'])">
+                    <video class="project-video" src="video/manual.mp4"  muted loop playsinline poster></video>
                     <div class="overlay">
                         <h3>Manual do Sistema</h3>
                     </div>
                 </div>
-                <div class="project" onclick="openModal('gc.mp4', 'Nome do Projeto', 'Descrição breve do projeto explicando sua funcionalidade. Projeto voltado para melhoria de processos internos, utilizando diversas tecnologias.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
-                    <video class="project-video" src="video/gc.mp4" muted loop></video>
+                <div class="project" onclick="openModal('gc.mp4', 'Portfólio de Marketing', 'Desenvolvi um site portfólio para uma empresa de marketing, destacando suas principais habilidades, serviços e áreas de atuação. O layout é responsivo e pensado para proporcionar uma ótima experiência em qualquer dispositivo. O site também conta com formulário de contato funcional, permitindo que visitantes entrem em contato diretamente por e-mail, facilitando a conversão de leads e fortalecendo a presença digital da marca.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
+                    <video class="project-video" src="video/gc.mp4" muted loop playsinline poster></video>
                     <div class="overlay">
-                        <h3>Nome do Projeto</h3>
+                        <h3>Portfólio de Marketing</h3>
                     </div>
                 </div>
-                <div class="project" onclick="openModal('tarefas.mp4', 'Nome do Projeto', 'Descrição breve do projeto explicando sua funcionalidade. Projeto voltado para melhoria de processos internos, utilizando diversas tecnologias.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
-                    <video class="project-video" src="video/tarefas.mp4" muted loop></video>
+                <div class="project" onclick="openModal('tarefas.mp4', 'Gerenciador de Tarefas', 'Desenvolvi um gerenciador de tarefas em React, onde é possível adicionar tarefas com descrição, além de realizar todas as operações de CRUD. Uma solução simples e eficiente para organizar atividades do dia a dia.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
+                    <video class="project-video" src="video/tarefas.mp4" muted loop playsinline poster></video>
                     <div class="overlay">
-                        <h3>Nome do Projeto</h3>
+                        <h3>Gerenciador de Tarefas</h3>
                     </div>
                 </div>
-                <div class="project" onclick="openModal('gc.mp4', 'Nome do Projeto', 'Descrição breve do projeto explicando sua funcionalidade. Projeto voltado para melhoria de processos internos, utilizando diversas tecnologias.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
-                    <video class="project-video" src="video/gc.mp4" muted loop></video>
+                <div class="project" onclick="openModal('jogo.mp4', 'Jogo de Palavras', 'Criei um jogo de adivinhação de palavras usando React. O sistema exibe uma dica e o usuário tem até 3 tentativas para acertar. Se errar a quarta vez, perde o jogo. Ao acertar, ganha pontuação e avança para o próximo tema. Uma experiência interativa e divertida.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
+                    <video class="project-video" src="video/jogo.mp4" muted loop playsinline poster></video>
                     <div class="overlay">
-                        <h3>Nome do Projeto</h3>
+                        <h3>Jogo de Palavras</h3>
                     </div>
                 </div>
-                <div class="project" onclick="openModal('gc.mp4', 'Nome do Projeto', 'Descrição breve do projeto explicando sua funcionalidade. Projeto voltado para melhoria de processos internos, utilizando diversas tecnologias.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
-                    <video class="project-video" src="video/gc.mp4" muted loop></video>
+                <div class="project" onclick="openModal('produtos.mp4', 'Cadastro de Produtos com API', 'Desenvolvi uma interface para cadastro de produtos, com envio de dados via API. Após o envio, é possível visualizar os dados diretamente no Postman, validando a comunicação entre o front-end e a API. Um projeto simples para demonstrar integração com serviços externos.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
+                    <video class="project-video" src="video/produtos.mp4" muted loop playsinline poster></video>
                     <div class="overlay">
-                        <h3>Nome do Projeto</h3>
-                    </div>
+                        <h3>Sistema de Cadastro de Produtos</h3>
                 </div>
-                <div class="project" onclick="openModal('gc.mp4', 'Nome do Projeto', 'Descrição breve do projeto explicando sua funcionalidade. Projeto voltado para melhoria de processos internos, utilizando diversas tecnologias.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-react'])">
-                    <video class="project-video" src="video/gc.mp4" muted loop></video>
+                </div>
+                <div class="project" onclick="openModal('restaurante.mp4', 'Cadastro de Produtos com API', 'Criei um site para restaurante com cardápio online e área administrativa. A proposta é melhorar a experiência do cliente no local, oferecendo um acesso rápido ao cardápio, enquanto o adm pode gerenciar os produtos e acessos de forma simples.', ['fa-html5', 'fa-css3-alt', 'fa-js', 'fa-php', 'fas fa-database'])">
+                    <video class="project-video" src="video/restaurante.mp4" muted loop playsinline poster></video>
                     <div class="overlay">
-                        <h3>Nome do Projeto</h3>
-                    </div>
+                        <h3>Restaurante</h3>
                 </div>
+                </div>
+                
             </div>
         </section>
 
-<!-- Modal -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <video id="modal-video" controls autoplay></video>
-        <h3 id="modal-title"></h3>
-        <p id="modal-description"></p>
-        <div class="tech-icons" id="modal-icons"></div>
-    </div>
-</div>
-
-
-<section class="contact" id="contact">
-    <h2>Entre em Contato</h2>
-
-    <!-- ALERTA DE RETORNO -->
-    <div id="contact-alert" class="contact-alert" style="display: none;"></div>
-
-    <div class="contact-container">
-        <div class="contact-info">
-            <div class="info-item">
-                <i class="fas fa-user"></i>
-                <p>Michel Lopes</p>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-envelope"></i>
-                <p>michel.lp@outlook.com</p>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-phone"></i>
-                <p>(11) 96658-3814</p>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>São Paulo - SP</p>
+        <!-- Modal -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <video id="modal-video" controls autoplay></video>
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+                <div class="tech-icons" id="modal-icons"></div>
             </div>
         </div>
-        <form class="contact-form" id="contact-form">
-            <input type="text" name="nome" placeholder="Nome" required>
-            <input type="email" name="email" placeholder="E-mail" required>
-            <input type="tel" name="telefone" placeholder="Telefone" required>
-            <textarea name="mensagem" placeholder="Digite sua mensagem" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-</section>
 
-<script>
-document.querySelector('.contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    const formData = new FormData(this);
-    const alertBox = document.getElementById('contact-alert');
+        <section class="contact animate-on-scroll" id="contact">
+            <h2>Entre em Contato</h2>
 
-    fetch('enviar-email.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.json())
-    .then(data => {
-    if (data.success) {
-        showAlert(data.message, 'success');
-        document.querySelector('.contact-form').reset();
-    } else {
-        showAlert(data.message, 'error');
-    }
-    })
+          
+            <div id="contact-alert" class="contact-alert" style="display: none;"></div>
 
-    .catch(err => {
-        showAlert('Erro ao enviar. Verifique sua conexão.', 'error');
-        console.error(err);
-    });
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <p>Michel Lopes</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>michel.lp@outlook.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>(11) 96658-3814</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>São Paulo - SP</p>
+                    </div>
+                </div>
 
-    function showAlert(message, type) {
-        alertBox.textContent = message;
-        alertBox.className = `contact-alert ${type}`;
-        alertBox.style.display = 'block';
-        alertBox.style.opacity = '1';
-
-        setTimeout(() => {
-            alertBox.style.opacity = '0';
-            setTimeout(() => {
-                alertBox.style.display = 'none';
-            }, 500);
-        }, 4000);
-    }
-});
-</script>
-
+                <form class="contact-form" id="contact-form">
+                    <input type="text" name="nome" placeholder="Nome" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="tel" name="telefone" placeholder="Telefone" required>
+                    <textarea name="mensagem" placeholder="Digite sua mensagem" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
 
 </main>
 
 
-<!-- <script src="js/carroselProjetos.js"></script> !-->
 <script src="js/contato.js"></script>
 <script src="js/skills.js"></script>
 <script src="js/fotoPerfil.js"></script>
 <script src="js/projetos.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/efeitoScroll.js"></script>
 
 </body>
+
 </html>
